@@ -8,3 +8,4 @@ sqlalchemy-bigquery
 google-cloud-bigquery
 streamlit
 pyngrok
+google-auth
