@@ -12,6 +12,8 @@ from langchain.llms.openai import OpenAI
 from langchain.agents import AgentExecutor 
 
 
+
+
 ##### Code
 
 service_account_file = "avian-light-210704-1eadc5b5acc1.json" ### Service Account Key Path
@@ -22,7 +24,8 @@ dataset = "Pramod_Attribution"
 table = "ROR"
 sqlalchemy_url  = f'bigquery://{project}/{dataset}?credentials_path={service_account_file}'
 
-os.environ["OPENAI_API_KEY"]="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" ### Open API Key
+OPENAI_API_KEY = os.environ.get('SECRET_KEY')
+os.environ["OPENAI_API_KEY"]=OPENAI_API_KEY ### Open API Key
 
 db = SQLDatabase.from_uri(sqlalchemy_url)
 #llm =OpenAI(temperature=0,model="text-embedding-ada-002	")
