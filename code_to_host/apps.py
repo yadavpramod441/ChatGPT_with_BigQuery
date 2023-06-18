@@ -14,10 +14,10 @@ from google.oauth2 import service_account
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
+service_account_file = credentials
 
 ##### Code
 
-service_account_file = credentials ### Service Account Key Path
 
 # Change to where your service account key file is located
 project  = "avian-light-210704"
@@ -25,14 +25,14 @@ dataset = "Pramod_Attribution"
 table = "ROR"
 sqlalchemy_url  = f'bigquery://{project}/{dataset}?credentials_path={service_account_file}'
 
-OPENAI_API_KEY = os.environ.get('SECRET_KEY')
-os.environ["OPENAI_API_KEY"]=OPENAI_API_KEY ### Open API Key
+# OPENAI_API_KEY = os.environ.get('SECRET_KEY')
+# os.environ["OPENAI_API_KEY"]=OPENAI_API_KEY ### Open API Key
 
-db = SQLDatabase.from_uri(sqlalchemy_url)
-#llm =OpenAI(temperature=0,model="text-embedding-ada-002	")
-llm =OpenAI(temperature=0,model="text-davinci-003") ### Type of embedding
-toolkit =SQLDatabaseToolkit(db=db,llm=llm)
-agent_executor =create_sql_agent(llm=llm,toolkit=toolkit,verbose=False,top_k=1000)
+# db = SQLDatabase.from_uri(sqlalchemy_url)
+# #llm =OpenAI(temperature=0,model="text-embedding-ada-002	")
+# llm =OpenAI(temperature=0,model="text-davinci-003") ### Type of embedding
+# toolkit =SQLDatabaseToolkit(db=db,llm=llm)
+# agent_executor =create_sql_agent(llm=llm,toolkit=toolkit,verbose=False,top_k=1000)
 
 st.title("Querying RoR Dataset")
 
