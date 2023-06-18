@@ -25,6 +25,15 @@ dataset = "Pramod_Attribution"
 table = "ROR"
 sqlalchemy_url  = f'bigquery://{project}/{dataset}?credentials_path={service_account_file}'
 
+client = bigquery.Client()
+sql = """
+SELECT * FROM `project.dataset.table`
+LIMIT 1
+"""
+df = client.query(sql).to_dataframe()
+print(df)
+st.text(df)
+
 # OPENAI_API_KEY = os.environ.get('SECRET_KEY')
 # os.environ["OPENAI_API_KEY"]=OPENAI_API_KEY ### Open API Key
 
