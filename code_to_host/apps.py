@@ -10,13 +10,19 @@ from langchain.agents.agent_toolkits import SQLDatabaseToolkit
 from langchain.sql_database import SQLDatabase 
 from langchain.llms.openai import OpenAI 
 from langchain.agents import AgentExecutor 
+from google.oauth2 import service_account
+from google.cloud import storage
 
 
-
+# Create API client.
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"]
+)
+client = storage.Client(credentials=credentials)
 
 ##### Code
 
-service_account_file = "avian-light-210704-1eadc5b5acc1.json" ### Service Account Key Path
+service_account_file = credentials ### Service Account Key Path
 
 # Change to where your service account key file is located
 project  = "avian-light-210704"
