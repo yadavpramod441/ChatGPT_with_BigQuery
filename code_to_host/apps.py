@@ -27,7 +27,7 @@ sqlalchemy_url  = f'bigquery://{project}/{dataset}?credentials_path={service_acc
 
 client = bigquery.Client()
 sql = """
-SELECT * FROM `project.dataset.table`
+SELECT * FROM `avian-light-210704.Pramod_Attribution.ROR`
 LIMIT 1
 """
 df = client.query(sql).to_dataframe()
