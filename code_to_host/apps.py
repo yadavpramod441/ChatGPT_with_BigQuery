@@ -11,8 +11,6 @@ from langchain.sql_database import SQLDatabase
 from langchain.llms.openai import OpenAI 
 from langchain.agents import AgentExecutor 
 from google.oauth2 import service_account
-from google.cloud import storage
-
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
