@@ -14,7 +14,7 @@ from langchain.agents import AgentExecutor
 
 ##### Code
 
-service_account_file = "/work/avian-light-210704-1eadc5b5acc1.json" ### Service Account Key Path
+service_account_file = "avian-light-210704-1eadc5b5acc1.json" ### Service Account Key Path
 
 # Change to where your service account key file is located
 project  = "avian-light-210704"
